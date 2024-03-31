@@ -35,33 +35,5 @@ spec:
   selector:
     app: readit-cart      
 
----
 
-apiVersion: apps/v1
-kind: ReplicaSet
-metadata:
-  labels:
-    app: readit-cart
-  name: readit-cart-rs
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: readit-cart
-  template:
-    metadata:
-      labels:
-        app: readit-cart
-    spec:
-      containers:
-      - image: readitkmvacr.azurecr.io/cart:latest
-        imagePullPolicy: Always
-        name: readit-cart
-        ports:
-        - containerPort: 80
-          protocol: TCP
-        resources:
-          limits:
-            cpu: 500m
-            memory: 128Mi
 
